@@ -107,12 +107,9 @@ module.exports = function () {
                     email: user.email,
                     usertype : user.usertype,
                     phone: user.phone,
-                    // currentCourses: user.currentCourses, // to fix a bug - by srivatsav
-                    // coursesTaken: user.coursesTaken, // to fix a bug - by srivatsav
+                    educationalQualifications: user.educationalQualifications,
                     gpa: user.gpa,
                     aboutMyself: user.aboutMyself,
-                    
-
                 }}
             );
     }

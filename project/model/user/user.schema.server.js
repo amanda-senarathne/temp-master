@@ -12,12 +12,13 @@ module.exports = function () {
         usertype: {type : String,  enum: ['student', 'faculty', 'admin']}, // type: student, faculty, admin
         image: String, // Image of the user
         aboutMyself: String, // Few lines about the user
-        jobS: String,
+        jobSector: String, // jobSector
         resumeURL: String,
         resumeName: String,
         nuid : Number,
         phone : String,
         gpa : String,
+        educationalQualifications: [String],
         coursesTaken: [String],
         currentCourses :[String],
         rating :[

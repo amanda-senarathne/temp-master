@@ -21,10 +21,11 @@
         vm.addUserCourses = addUserCourses;
         vm.deleteUserCourse = deleteUserCourse;
 
+        vm.addEducationalQualification = addEducationalQualification;
+        vm.removeEducationalQualification = removeEducationalQualification;
+
 
         var user;
-        var oldCoursesCurrent;
-        var oldCoursesTaken;
 
         function init(){
             UserService
@@ -32,8 +33,7 @@
                 .then(function (response) {
                     vm.user = response.data;
                     user = vm.user;
-                    // oldCoursesCurrent = user.currentCourses;
-                    // oldCoursesTaken = user.coursesTaken;
+                    console.log("user -> ", user);
                 });
 
 
@@ -46,6 +46,21 @@
         }
         init();
 
+
+        function addEducationalQualification() {
+            if (Array.isArray(vm.user.educationalQualifications) === false) {
+                vm.user.educationalQualifications = [""]
+            }
+            else {
+                vm.user.educationalQualifications.push("")
+            }
+        }
+
+        function removeEducationalQualification(index) {
+            if (Array.isArray(vm.user.educationalQualifications) !== false && typeof vm.user.educationalQualifications[index] !== "undefined") {
+                vm.user.educationalQualifications.splice(index, 1)
+            }
+        }
 
         // Author: Sesha Sai Srivatsav
         function addCurrentCourses(user) {

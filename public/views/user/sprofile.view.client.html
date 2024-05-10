@@ -10,15 +10,24 @@
 
     <hr>
 
-    <div class="col-sm-4 col-md-4">
-        <a class="btn btn-primary btn-block"
-           href="#/uploadResume"> Upload Resume </a>
+    <div class="row">
+        <div class="col-sm-2 col-md-4">
+            <a class="btn btn-primary btn-block"
+               href="#/uploadResume"> Upload Resume </a>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-primary btn-block"
+               href="#/uploadResume"> Download Your Resume </a>
+        </div>
+    
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-primary btn-block"
+               href="#/studentjobapplication">Job Applications</a>
+        </div>
     </div>
-    <div class="col-sm-4 col-md-4">
-        <a class="btn btn-primary btn-block"
-           href="#/uploadResume"> Download Your Resume </a>
-    </div><br><br>
 
+    <br/>
+    
     <div class="col-sm-6 col-md-6">
 
         <img src="../../images/profile.jpeg" style="width:20%;"><br>
@@ -33,7 +42,15 @@
         <p><b>Minimum Education Level</b>: {{model.user.jobsector}}</p>   
         <p><b>Minimum Number of GCSE Passes</b>: {{model.user.jobsector}}</p>   
         <p><b>Education</b>: {{model.user.jobsector}}</p>
+        
+        <div ng-repeat="educationalQualification in model.user.educationalQualifications">
+            <div style="display: flex; margin-bottom: 5px;">
+                {{educationalQualification}}
+            </div> 
+        </div>
         <p><b>Professional Qualificaions</b>: {{model.user.jobsector}}</p><br><br>
+
+
         <p>EXPERIENCE</p><br>
         <p><b>Job Sector</b>: {{model.user.jobS}}</p>
         <p><b>Experience</b>{{model.user.jobsector}}: </p><br>
