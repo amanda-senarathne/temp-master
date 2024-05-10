@@ -1,0 +1,88 @@
+<div class="container">
+    <h2>
+        Welcome User, {{model.user.firstName}} {{model.user.lastName}}
+    </h2>
+
+
+</div>
+
+<div class="container">
+
+    <hr>
+
+    <div class="col-sm-4 col-md-4">
+        <a class="btn btn-primary btn-block"
+           href="#/uploadResume"> Upload Resume </a>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <a class="btn btn-primary btn-block"
+           href="#/uploadResume"> Download Your Resume </a>
+    </div><br><br>
+
+    <div class="col-sm-6 col-md-6">
+
+        <img src="../../images/profile.jpeg" style="width:20%;"><br>
+        <br>
+        <p style="font-size: 40px; font-weight: bolder;">{{model.user.firstName}}  {{model.user.lastName}}</p>
+        <p ><b>SUMMARY</summary></b>{{model.user.jobsector}}</p><br><br>
+        <p>CONTACT</p><br>
+        <p><b>Address</b>: {{model.user.phone}}</p>
+        <p><b>Phone</b>: {{model.user.phone}}</p>
+        <p><b>Email Address</b>: {{model.user.email}}</p><br><br>
+        <p>EDUCATION</p><br>
+        <p><b>Minimum Education Level</b>: {{model.user.jobsector}}</p>   
+        <p><b>Minimum Number of GCSE Passes</b>: {{model.user.jobsector}}</p>   
+        <p><b>Education</b>: {{model.user.jobsector}}</p>
+        <p><b>Professional Qualificaions</b>: {{model.user.jobsector}}</p><br><br>
+        <p>EXPERIENCE</p><br>
+        <p><b>Job Sector</b>: {{model.user.jobS}}</p>
+        <p><b>Experience</b>{{model.user.jobsector}}: </p><br>
+        <p>SKILLS</p><br><br>
+        <p>{{model.user.jobsector}}: </p>
+
+       <!---<p><b>Current Courses:</b><p ng-repeat="currentcourse in model.user.currentCourses">{{currentcourse}}</p></p>
+        <p><b>My Previous Courses:</b><p ng-repeat="course in model.user.coursesTaken">{{course}}</p></p>
+        <p><b>About Myself:</b>{{model.user.aboutMyself}}</p>
+        <p><b>Job Sector:</b>{{model.user.jobSector}}</p>----->
+
+    
+    </div>
+
+
+    <div class="col-sm-8 col-md-8">
+
+
+
+        <!-- Display resume -->
+
+        <!----<iframe  ng-src="{{model.user.resumeURL}}" width='700' height='900'></iframe>
+        <br>
+        <a ng-href="{{model.user.resumeURL}}">View Full Resume: {{model.user.resumeName}}</a>
+        <br>
+
+        <br>
+        ------------------>
+
+    </div>
+</div>
+
+
+<!------------------------------------------->
+<!--------------- Footer ------------------>
+<!------------------------------------------->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a ng-click = "model.logout()">Logout</a>
+            </a>
+        </p>
+
+        <p class="navbar-text pull-left">
+            <a href="#/seditprofile">
+                <span>Edit Profile</span>
+            </a>
+        </p>
+
+    </div>
+</nav>
+

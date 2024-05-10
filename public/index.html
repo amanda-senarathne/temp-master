@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaPortal">
+
+<head>
+
+    <meta charset="UTF-8" >
+
+    <!-- Meta tags for making website for mobile-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Making it Safari Friendly-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--Disabling user pinch and default to 25% size-->
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+
+    <title>TA Portal</title>
+
+    <!-- BootStrap style sheet-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!--IMP-->
+    <!-- Load jQuery before Angular for DOM manipulation-->
+
+
+    <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
+    <link href="css/style.css" rel="stylesheet"/>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <style>
+        body {
+            font-family:'Merriweather', serif;
+        }
+    </style>
+
+
+    <style>
+        table {
+
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+    <!-- Font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--Angular Modules-->
+    <!--Angular Module. Deals with centralized routing mechanism-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <!--Routing Module-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+
+    <!--App.js-->
+    <script src="app.js"></script>
+
+
+    <!--config.js. What do we wanna show when we click things. configure-->
+    <!-- this is the centralized single maintenance point-->
+    <script src="config.js"></script>
+
+
+    <!-- Style Sheet-->
+    <link href="css/style.css" rel="stylesheet"/>
+
+
+    <!--Controllers-->
+
+    <!--User-->
+    <script src="views/user/login.controller.client.js"></script>
+    <script src="views/user/sregister.controller.client.js"></script>
+    <script src="views/user/sprofile.controller.client.js"></script>
+    <script src="views/user/sprofileedit.controller.client.js"></script>
+    <script src="views/user/sjobapplication.controller.client.js"></script>
+    <script src="views/user/smyjobsdashboard.controller.client.js"></script>
+    <script src="views/user/resumeUpload.controller.client.js"></script>
+
+    <!--Faculty-->
+    <script src="views/faculty/fprofile.controller.client.js"></script>
+    <script src="views/faculty/fregister.controller.client.js"></script>
+    <script src="views/faculty/fprofileedit.controller.client.js"></script>
+    <script src="views/faculty/userInfo.controller.client.js"></script>
+    <script src="views/faculty/select.Application.controller.client.js"></script>
+
+    <!--Admin-->
+    <script src="views/admin/aprofile.controller.client.js"></script>
+    <script src="views/admin/aconsole.controller.client.js"></script>
+    <script src="views/admin/aprofileedit.controller.client.js"></script>
+    <script src="views/admin/manageusers.controller.client.js"></script>
+    <script src="views/admin/managecoursesandsemesters.controller.client.js"></script>
+    <script src="views/admin/createandmanagepositions.controller.client.js"></script>
+    <script src="views/admin/applicationsForCourseAdmin.controller.client.js"></script>
+    <script src="views/admin/choosecourses.controller.client.js"></script>
+
+
+    <!--Services-->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/coursesandsemesters.service.client.js"></script>
+    <script src="services/managepositions.service.client.js"></script>
+    <script src="services/applications.service.client.js"></script>
+
+
+</head>
+
+<body>
+    <div ng-view></div>
+</body>
+
+</html>

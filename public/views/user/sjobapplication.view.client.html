@@ -1,0 +1,332 @@
+
+<!------------------------------------------------------------------------>
+<!--                     Create TA Application                            -->
+<!------------------------------------------------------------------------>
+<div class="container">
+    <h3 ><b>Apply for TA Position</b></h3>
+    <div class="container">
+        <h3>Guidelines to fill an application</h3>
+        <h5><b>Priority</b>: Each application needs to have priority between 1 and 3</h5>
+        <h5><b>TA Role</b>: Upon selecting your desired TA role, you will be able to see the number of openings for the position</h5>
+        <h5><b>Prev Semester</b>: Enter the last semester where you took the course</h5>
+        <h5><b>Grade</b>: Enter your grade in this course.  Leave blank if you have not taken it</h5>
+        <h5><b>Assistantship</b>: Enter your most recent semester for which you've been TA for this subject. Leave Blank otherwise</h5>
+    </div>
+
+    <br>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Priority</th>
+                <th>TA Role</th>
+                <th># positions</th>
+                <th>Semester</th>
+                <th>Prev Semester</th>
+                <th>Grade</th>
+                <th>Assistantship</th>
+                <th>Availability</th>
+                <th>Remarks</th>
+            </tr>
+            </thead>
+
+            <!-- Table Body-->
+            <tbody>
+
+            <tr>
+
+                <!---- Priority ---->
+                <td>
+                    <select
+                            type="number"
+                            class="form-control resizedTextbox"
+                            placeholder="priority"
+                            ng-model="model.application.priority">
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+
+
+                <!----- TA Role ------>
+                <td>
+                    <select
+                            type="string"
+                            class="form-control resizedTextboxLongest"
+                            placeholder="TA Role"
+                            ng-model="model.application._position"
+                            ng-change="model.updateposnum(model.application._position)">
+
+                        <!-- Drop down values -->
+                        <option ng-repeat="position in model.positions" value="{{position.course}}+{{position.number}}+{{position.semester}}">{{position.course}}</option>
+
+                    </select>
+                </td>
+
+
+
+                <!-- Number of positions available-->
+                <td>
+                    {{model.tempposnum}}
+                </td>
+
+
+
+                <!-- TA position is for given semester-->
+                <td>
+                    {{model.tempsemester}}
+                </td>
+
+                <!--Previously taken this semester-->
+                <td>
+                    <select
+                            type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="Previous Semester where you took the course"
+                            ng-model="model.application.previouslyTaken">
+
+                        <option ng-repeat="semester in model.semesters">{{semester.semestername}}</option>
+
+                    </select>
+                </td>
+
+
+                <!--Grade Obtained-->
+                <td>
+                    <select type="string"
+                            class="form-control "
+                            placeholder="Grade Obtained"
+                            ng-model="model.application.gradeObtained">
+
+                        <option value="A">A</option>
+                        <option value="A-">A-</option>
+                        <option value="B">B</option>
+                        <option value="B-">B-</option>
+                        <option value="lower">lower</option>
+                    </select>
+                </td>
+
+                <!--Semester-->
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="semestername"
+                            ng-model="model.application.beenTASemester">
+
+                        <option ng-repeat="semester in model.semesters">{{semester.semestername}}</option>
+                    </select>
+                </td>
+
+
+                <!--Availability-->
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="Student availability"
+                            ng-model="model.application.availability">
+
+                        <option value="Fully Available">Fully Available</option>
+                        <option value="Looking for Co-ops">Looking for Co-ops</option>
+
+                    </select>
+                </td>
+
+
+                <!--Remarks-->
+                <td><input type="text"
+                           class="form-control resizedTextboxLonger"
+                           ng-model="model.application.remarks"
+                           placeholder="Enter your remarks"/>
+                </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+        <a ng-click="model.createApplications(model.application )"
+           class="btn btn-block btn-primary">
+            Apply
+        </a>
+    </div>
+</div>
+
+<br>
+<br>
+<div class="container">
+    <h4>The below applications submitted by you can be managed from your Jobs Dashboard ("Go to my Jobs Dashboard" button below)</h4>
+    <h4>You can check the status of the application and/or withdraw an application in your Jobs DashBoard</h4>
+</div>
+
+<!----------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------->
+<!--                     (DATA)             My  Applications                             -->
+<!----------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------->
+<div class="container ">
+    <h4 ><b>My Applications </b></h4>
+
+    <!-- Update Message -->
+    <div ng-if="model.updatedmessage" class="alert alert-success">
+        {{model.updatedmessage}}
+    </div>
+
+    <!-- Update Message -->
+    <div ng-if="model.error1" class="alert alert-danger">
+        {{model.error1}}
+    </div>
+    <div ng-if="model.error2" class="alert alert-danger">
+        {{model.error2}}
+    </div>
+    <div ng-if="model.error3" class="alert alert-danger">
+        {{model.error3}}
+    </div>
+
+
+    <!-- Heading -->
+    <div class="table-responsive">
+        <table class="table table-hover">
+
+            <!-- Header for Position-->
+
+            <th>Priority</th>
+            <th>TA Role</th>
+
+            <th>Previously took this course</th>
+            <th>Grade in this course</th>
+            <th>Assistantship</th>
+            <th>Availability</th>
+            <th>Remarks</th>
+
+            <th>Update Application</th>
+
+
+            <tr ng-repeat="app in model.applications">
+
+
+                <!---- Priority ---->
+                <td>
+                    <select type="number"
+                            class="form-control resizedTextbox"
+                            placeholder="priority"
+                            ng-model="app.priority">
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+
+                <!----- TA Role ------>
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLongest"
+                            placeholder="TA Role"
+                            ng-model="app.courseName">
+                        <option ng-repeat="position in model.positions">{{position.course}}</option>
+
+                    </select>
+                </td>
+
+
+
+                <!--Previously taken this semester-->
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="Previous Semester where you took the course"
+                            ng-model="app.previouslyTaken">
+
+                        <option ng-repeat="semester in model.semesters">{{semester.semestername}}</option>
+
+                    </select>
+                </td>
+
+                <!--Grade Obtained-->
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="Grade Obtained"
+                            ng-model="app.gradeObtained">
+
+                        <option value="A">A</option>
+                        <option value="A-">A-</option>
+                        <option value="B">B</option>
+                        <option value="B-">B-</option>
+                        <option value="lower">lower</option>
+                    </select>
+                </td>
+
+                <!--Semester-->
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="semestername"
+                            ng-model="app.beenTASemester">
+
+                        <option ng-repeat="semester in model.semesters">{{semester.semestername}}</option>
+                    </select>
+                </td>
+
+
+                <!--Availability-->
+                <td>
+                    <select type="string"
+                            class="form-control resizedTextboxLonger"
+                            placeholder="Student availability"
+                            ng-model="app.availability">
+
+                        <option value="Fully Available">Fully Available</option>
+                        <option value="Looking for Co-ops">Looking for Co-ops</option>
+
+                    </select>
+                </td>
+
+                <!--Remarks-->
+                <td><input class="form-control resizedTextboxLonger"
+                           type="text"
+                           ng-model="app.remarks"
+                           placeholder="Enter your remarks"/></td>
+
+
+                <!-- Update Application Button-->
+
+
+                <td><a ng-click="model.updateApplication(app._id, app)" class="btn btn-block btn-primary">
+                Update</a></td>
+
+            </tr>
+        </table>
+    </div>
+
+    <p></p>
+    <a  class="btn btn-block btn-primary"
+        href="#/myjobsdashboard">Go to my Jobs Dashboard</a>
+
+</div>
+
+
+
+
+<!------------------------------------------------->
+<!--                 Footer                      -->
+<!------------------------------------------------->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a  ng-click="model.logout()">
+                <span>Logout</span>
+            </a>
+
+        </p>
+        <p class="navbar-text pull-left">
+
+            <a  href="#/sprofile">
+                <span>Back to Profile</span>
+            </a>
+        </p>
+
+    </div>
+</nav>
