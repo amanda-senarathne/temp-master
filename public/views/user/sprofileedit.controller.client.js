@@ -24,6 +24,9 @@
         vm.addEducationalQualification = addEducationalQualification;
         vm.removeEducationalQualification = removeEducationalQualification;
 
+        vm.addProfessionalQualification = addProfessionalQualification;
+        vm.removeProfessionalQualification = removeProfessionalQualification;
+
 
         var user;
 
@@ -62,7 +65,23 @@
             }
         }
 
-        // Author: Sesha Sai Srivatsav
+        
+        function addProfessionalQualification() {
+            if (Array.isArray(vm.user.professionalQualifications) === false) {
+                vm.user.professionalQualifications = [""]
+            }
+            else {
+                vm.user.professionalQualifications.push("")
+            }
+        }
+
+        function removeProfessionalQualification(index) {
+            if (Array.isArray(vm.user.professionalQualifications) !== false && typeof vm.user.professionalQualifications[index] !== "undefined") {
+                vm.user.professionalQualifications.splice(index, 1)
+            }
+        }
+
+
         function addCurrentCourses(user) {
             UserService
                 .addCurrentCourses(userId, user)
@@ -77,7 +96,7 @@
                 })
         }
 
-        // Author: Sesha Sai Srivatsav
+  
         function deleteCurrentCourse(course) {
             UserService
                 .deleteCurrentCourse(userId, course)
@@ -93,7 +112,7 @@
 
         }
 
-        // Author: Sesha Sai Srivatsav
+
         function deleteUserCourse(course) {
             UserService
                 .deleteUserCourse(userId, course)

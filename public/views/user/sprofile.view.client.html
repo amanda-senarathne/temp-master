@@ -19,11 +19,7 @@
             <a class="btn btn-primary btn-block"
                href="#/uploadResume"> Download Your Resume </a>
         </div>
-    
-        <div class="col-sm-4 col-md-4">
-            <a class="btn btn-primary btn-block"
-               href="#/studentjobapplication">Job Applications</a>
-        </div>
+
     </div>
 
     <br/>
@@ -33,29 +29,31 @@
         <img src="../../images/profile.jpeg" style="width:20%;"><br>
         <br>
         <p style="font-size: 40px; font-weight: bolder;">{{model.user.firstName}}  {{model.user.lastName}}</p>
-        <p ><b>SUMMARY</summary></b>{{model.user.jobsector}}</p><br><br>
+        <p ><b>SUMMARY</summary></b>{{model.user.aboutMyself}}</p><br><br>
         <p>CONTACT</p><br>
-        <p><b>Address</b>: {{model.user.phone}}</p>
         <p><b>Phone</b>: {{model.user.phone}}</p>
         <p><b>Email Address</b>: {{model.user.email}}</p><br><br>
         <p>EDUCATION</p><br>
-        <p><b>Minimum Education Level</b>: {{model.user.jobsector}}</p>   
-        <p><b>Minimum Number of GCSE Passes</b>: {{model.user.jobsector}}</p>   
-        <p><b>Education</b>: {{model.user.jobsector}}</p>
+        <p><b>Minimum Education Level</b>: {{model.user.minEduLvl}}</p>   
+        <p><b>Minimum Number of GCSE Passes</b>: {{model.user.minNoGcse}}</p>   
         
         <div ng-repeat="educationalQualification in model.user.educationalQualifications">
             <div style="display: flex; margin-bottom: 5px;">
-                {{educationalQualification}}
+                {{educationalQualifications}}
+                consol.log(user);
             </div> 
         </div>
-        <p><b>Professional Qualificaions</b>: {{model.user.jobsector}}</p><br><br>
 
-
+        <div ng-repeat="professionalQualification in model.user.professionalQualifications">
+            <div style="display: flex; margin-bottom: 5px;">
+                {{professionalQualifications}}
+            </div> 
+        </div>
         <p>EXPERIENCE</p><br>
-        <p><b>Job Sector</b>: {{model.user.jobS}}</p>
-        <p><b>Experience</b>{{model.user.jobsector}}: </p><br>
+        <p><b>Job Sector</b>: {{model.user.jobSector}}</p>
+        <p><b>Experience</b>: {{model.user.userExperience}} </p><br>
         <p>SKILLS</p><br><br>
-        <p>{{model.user.jobsector}}: </p>
+        <p>{{model.user.userSkills}}: </p>
 
        <!---<p><b>Current Courses:</b><p ng-repeat="currentcourse in model.user.currentCourses">{{currentcourse}}</p></p>
         <p><b>My Previous Courses:</b><p ng-repeat="course in model.user.coursesTaken">{{course}}</p></p>

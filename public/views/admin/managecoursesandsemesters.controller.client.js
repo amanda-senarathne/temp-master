@@ -1,7 +1,3 @@
-/**
- * Created by seshasai on 11/16/2016.
- */
-///ManageCoursesSemestersController
 
 (function () {
     angular
@@ -28,12 +24,6 @@
         init();
 
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //                      Developed by Srivatsav                                                      //
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        // Author: Sesha Sai Srivatsav
         function createCourse(coursename){
 
             var course = {
@@ -77,7 +67,7 @@
                 })
             
         }
-        // Author: Sesha Sai Srivatsav
+
         function deleteCourse(courseId) {
 
             CoursesandSemestersService
@@ -97,7 +87,7 @@
                     }
                 )
         }
-        // Author: Sesha Sai Srivatsav
+
         function findAllCourses() {
             CoursesandSemestersService
                 .findAllCourses()
@@ -106,7 +96,7 @@
                     vm.courseCount = vm.courses.length;
                 })
         }
-        // Author: Sesha Sai Srivatsav
+
         function createSemester(semestername){
 
             var semester = {
@@ -117,7 +107,7 @@
                 .createSemester(semester)
                 .then(
                     function (response) {
-                        vm.screatesuccess="semester created successfully";
+                        vm.screatesuccess="Job created successfully";
 
                         CoursesandSemestersService
                             .findAllSemesters()
@@ -135,7 +125,7 @@
             CoursesandSemestersService
                 .updateSemester(semesterId, semester)
                 .then(function (response) {
-                    vm.supdatedmessage = "Updated Semester Successfully!";
+                    vm.supdatedmessage = "Updated Job Successfully!";
                     CoursesandSemestersService
                         .findAllSemesters()
                         .then(
@@ -154,7 +144,7 @@
                 .deleteSemester(semesterId)
                 .then(
                     function (response) {
-                        vm.swarning = "Deleted Semester Successfully!";
+                        vm.swarning = "Deleted Job Successfully!";
                         vm.createsuccess = null;
                         CoursesandSemestersService
                             .findAllSemesters()

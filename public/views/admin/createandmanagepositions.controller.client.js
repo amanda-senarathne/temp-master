@@ -33,14 +33,6 @@
         }
         init();
 
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //                      Developed by Srivatsav                                                      //
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        // Author: Sesha Sai Srivatsav
-
         function updateDeadline(semestername, deadline) {
             var position = {
                 semester : semestername,
@@ -55,8 +47,6 @@
                 );
         }
 
-
-        // Author: Sesha Sai Srivatsav
 
         function findAllPositions() {
             PositionService

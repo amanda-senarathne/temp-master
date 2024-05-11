@@ -13,12 +13,18 @@ module.exports = function () {
         image: String, // Image of the user
         aboutMyself: String, // Few lines about the user
         jobSector: String, // jobSector
+        minNoGcse:String,//minNumebr of GCSE
+        minEduLvl:String,//minimum Edu Level
+        userSkills:String, //skills
+        userExperience:String,//experience
+        aboutMyself:String, //ABout my self
         resumeURL: String,
         resumeName: String,
         nuid : Number,
         phone : String,
         gpa : String,
         educationalQualifications: [String],
+        professionalQualifications:[String],
         coursesTaken: [String],
         currentCourses :[String],
         rating :[

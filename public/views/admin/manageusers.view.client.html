@@ -45,7 +45,6 @@
             {{model.createsuccess}}
         </div>
 
-        <h4><b>Create User (Admin/Student/Faculty)</b></h4>
 
         <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12">
@@ -109,6 +108,15 @@
                     <th>FirstName</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Job Sector</th>
+                    <th>Minimum GCSE Passes</th>
+                    <th>Minimum Education Level</th>
+                    <th>Educational Qualifications</th>
+                    <th>Professional Qualifications</th>
+                    <th>Skills</th>
+                    <th>Experience</th>
+                    <th>About</th>
+
 
                 </tr>
                 </thead>
@@ -140,6 +148,17 @@
 
                     <!-- Email Name -->
                     <td> {{user.email}}</td>
+
+                    <!-- jobsec Name -->
+                    <td> {{user.jobSector}}</td>
+                    <td> {{user.minNoGcse}}</td>
+                    <td> {{user.minEduLvl}}</td>
+                    <td>{{user.educationalQualifications}}</td>
+                    <td>{{user.professionalQualifications}}</td>
+                    <td> {{user.userSkills}}</td>
+                    <td> {{user.userExperience}}</td>
+                    <td> {{user.aboutMyself}}</td>
+
 
 
                 </tr>

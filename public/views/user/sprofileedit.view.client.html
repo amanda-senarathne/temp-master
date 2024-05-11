@@ -86,16 +86,42 @@
             <!----------------------------------------------------------------------------------------->
             </br>
 
-            <label for="last-name"> Minimum Number of GCSE Passes</label>
-            <input ng-model="model.user.gpa" type="text" name="gpa" class="form-control" id="gpa"
-                placeholder="Wonderland" required>
+            <label for="min-gcse"> Minimum Number of GCSE Passes</label>
+            <input ng-model="model.user.minNoGcse"  name="minNoGcse" type="text" class="form-control" id="min-gcse"
+                placeholder="Minimum Number of GCSE Passes" required>
 
-            <span class="alert-class" ng-show="model.myform.gpa.$invalid">
+            <span class="alert-class" ng-show="model.myform.minNoGcse.$invalid">
                 {{model.alert}}
             </span>
-
+<b>
             </br>
+            <label for="min-edu"> Minimum Educational Level</label>
+            <input ng-model="model.user.minEduLvl" type="text" name="minEduLvl" class="form-control" id="min-edu"
+                placeholder="Minimum Educational Level" required>
 
+            <span class="alert-class" ng-show="model.myform.minEduLvl.$invalid">
+                {{model.alert}}
+            </span>
+<br>
+            </br>
+            <label for="skills"> Skills</label>
+            <input ng-model="model.user.userSkills" type="text" name="userSkills" class="form-control" id="skills"
+                placeholder="Skills" required>
+
+            <span class="alert-class" ng-show="model.myform.userSkills$invalid">
+                {{model.alert}}
+            </span>
+<br>
+            </br>
+            <label for="userExperience"> Experience</label>
+            <input ng-model="model.user.userExperience" type="text" name="userExperience" class="form-control" id="userExperience"
+                placeholder="Experience" required>
+
+            <span class="alert-class" ng-show="model.myform.userExperience.$invalid">
+                {{model.alert}}
+            </span>
+<br>
+            </br>
             <!------------------------------------------------------------------------>
 
 
@@ -118,6 +144,26 @@
                     </button>
                 </div>
             </div>
+
+            
+            <div class="row" style="margin-bottom: 10px;">
+                <!--Button to add-->
+                    <div class="col-sm-12" style="margin-bottom: 20px;">
+                    <label>Professional Qualification</label>
+                    <div class="col-sm-12" ng-repeat="professionalQualification in model.user.professionalQualifications track by $index">
+                        <div style="display: flex; margin-bottom: 5px;">
+                            <input  style="flex: 8; margin-right: 10px;"  class="form-control" type='text' value='{{professionalQualification}}' ng-model="model.user.educationalQualifications[$index]"/>
+                            <button style="flex: 2" class="btn btn-primary btn-block" ng-click="model.removeProfessionalQualification($index)">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px;" class="col-sm-12">
+                        <button class="btn btn-primary btn-block" ng-click="model.addProfessionalQualification()">
+                            Add
+                        </button>
+                    </div>
+                </div>
             <!----------------------------------------------------------------------------------------->
             <!-- Phone Number-->
             </div>
